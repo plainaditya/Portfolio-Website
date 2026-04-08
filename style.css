@@ -70,3 +70,33 @@ section a {
 section a:hover {
     text-decoration: underline;
 }
+/* your existing CSS above */
+
+/* LINKS SECTION */
+section a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+/* ========================= */
+/* ADD THIS AT THE VERY END */
+/* ========================= */
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
