@@ -14,6 +14,8 @@ body {
 .hero h1 {
     font-size: 52px;
     margin-bottom: 10px;
+    color: #58a6ff;
+    text-shadow: 0 0 15px rgba(88, 166, 255, 0.6);
 }
 
 .hero p {
@@ -27,20 +29,29 @@ section {
     margin-top: 50px;
 }
 
+/* PROJECT CONTAINER (for grid layout later) */
+.projects-container {
+    width: 80%;
+    margin: auto;
+}
+
 /* CARDS */
 .card {
-    background: rgba(22, 27, 34, 0.6);
-    backdrop-filter: blur(12px);
+    background: rgba(22, 27, 34, 0.5);
+    backdrop-filter: blur(15px);
     border-radius: 12px;
     padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s ease;
+    margin: 20px auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
 }
+
 /* HOVER EFFECT */
 .card:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
 }
+
 /* BUTTON STYLE LINKS */
 .card a {
     display: inline-block;
@@ -52,29 +63,23 @@ section {
     text-decoration: none;
     transition: 0.3s;
 }
-.card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
+
+.card a:hover {
+    background: #2ea043;
 }
+
 /* LINKS SECTION */
 section a {
     color: #58a6ff;
     text-decoration: none;
     font-size: 18px;
 }
-section a:hover {
-    text-decoration: underline;
-}
-/* LINKS SECTION */
-section a {
-    color: #58a6ff;
-    text-decoration: none;
-    font-size: 18px;
-}
+
 section a:hover {
     text-decoration: underline;
 }
 
+/* SCROLL FADE-IN */
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
