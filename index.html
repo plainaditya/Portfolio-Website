@@ -5,22 +5,10 @@
     <title>Aditya Singh | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const elements = document.querySelectorAll(".fade-in");
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-elements.forEach(el => observer.observe(el));
-</script>
 <body>
 
-   <section class="hero fade-in">
+    <section class="hero fade-in">
         <h1>Aditya Singh</h1>
         <p>Class 11 PCM Student • Learning Python • Building Real Projects</p>
     </section>
@@ -28,22 +16,26 @@ elements.forEach(el => observer.observe(el));
     <section class="fade-in">
         <h2>Projects</h2>
 
-        <div class="card">
-            <h3>Basic Calculator</h3>
-            <p>A simple Python calculator for basic operations.</p>
-            <a href="https://github.com/plainaditya/first-project-calculator" target="_blank">View Project</a>
-        </div>
+        <div class="projects-container">
 
-        <div class="card">
-            <h3>Number Guessing Game</h3>
-            <p>A game where users guess a randomly generated number.</p>
-            <a href="https://github.com/plainaditya/Number-guessing-game" target="_blank">View Project</a>
-        </div>
+            <div class="card">
+                <h3>Basic Calculator</h3>
+                <p>A simple Python calculator for basic operations.</p>
+                <a href="https://github.com/plainaditya/first-project-calculator" target="_blank">View Project</a>
+            </div>
 
-        <div class="card">
-            <h3>Password Generator</h3>
-            <p>Generates secure passwords with customizable options.</p>
-            <a href="https://github.com/plainaditya/Password-Generator" target="_blank">View Project</a>
+            <div class="card">
+                <h3>Number Guessing Game</h3>
+                <p>A game where users guess a randomly generated number.</p>
+                <a href="https://github.com/plainaditya/Number-guessing-game" target="_blank">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Password Generator</h3>
+                <p>Generates secure passwords with customizable options.</p>
+                <a href="https://github.com/plainaditya/Password-Generator" target="_blank">View Project</a>
+            </div>
+
         </div>
 
     </section>
@@ -53,6 +45,21 @@ elements.forEach(el => observer.observe(el));
         <a href="https://github.com/plainaditya" target="_blank">GitHub</a><br>
         <a href="https://linkedin.com/in/plainaditya" target="_blank">LinkedIn</a>
     </section>
+
+    <!-- ✅ SCRIPT GOES HERE (VERY IMPORTANT) -->
+    <script>
+    const elements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    });
+
+    elements.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 
