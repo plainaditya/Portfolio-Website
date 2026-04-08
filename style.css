@@ -29,21 +29,18 @@ section {
 
 /* CARDS */
 .card {
-    background: #161b22;
-    margin: 20px auto;
-    padding: 25px;
+    background: rgba(22, 27, 34, 0.6);
+    backdrop-filter: blur(12px);
     border-radius: 12px;
-    width: 60%;
-    border: 1px solid #30363d;
-    transition: all 0.3s ease;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
 }
-
 /* HOVER EFFECT */
 .card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
 }
-
 /* BUTTON STYLE LINKS */
 .card a {
     display: inline-block;
@@ -55,39 +52,29 @@ section {
     text-decoration: none;
     transition: 0.3s;
 }
-
-.card a:hover {
-    background: #2ea043;
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
 }
-
 /* LINKS SECTION */
 section a {
     color: #58a6ff;
     text-decoration: none;
     font-size: 18px;
 }
-
 section a:hover {
     text-decoration: underline;
 }
-/* your existing CSS above */
-
 /* LINKS SECTION */
 section a {
     color: #58a6ff;
     text-decoration: none;
     font-size: 18px;
 }
-
 section a:hover {
     text-decoration: underline;
 }
 
-/* ========================= */
-/* ADD THIS AT THE VERY END */
-/* ========================= */
-
-/* Fade-in animation */
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
