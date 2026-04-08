@@ -5,7 +5,19 @@
     <title>Aditya Singh | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+const elements = document.querySelectorAll(".fade-in");
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
 <body>
 
    <section class="hero fade-in">
