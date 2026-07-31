@@ -7,34 +7,67 @@
     <meta name="keywords" content="Aditya Singh, portfolio, Python, web development, projects">
     <meta name="author" content="Aditya Singh">
     <title>Aditya Singh | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero fade-in">
-        <p class="eyebrow">Personal Portfolio</p>
-        <h1>Aditya Singh</h1>
-        <p class="hero-subtitle">Class 11 PCM student • Learning Python • Building real projects</p>
-        <p class="hero-text">
-            I enjoy creating simple, useful, and visually clean projects while improving my coding skills.
-            This site highlights the work I have built so far and the direction I am heading in.
-        </p>
-        <div class="hero-actions">
-            <a href="#projects">View Projects</a>
-            <a href="https://github.com/plainaditya" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <nav class="top-nav">
+        <div class="brand">Aditya Singh</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="fade-in" id="about">
-            <h2>About Me</h2>
+    <main class="page-shell">
+        <section class="hero">
+            <div class="hero-left fade-in">
+                <p class="eyebrow">Personal Portfolio</p>
+                <h1>Aditya Singh</h1>
+                <p class="hero-subtitle">Class 11 PCM student • Learning Python • Building real projects</p>
+                <p class="hero-text">
+                    I enjoy creating simple, useful, and visually clean projects while improving my coding skills.
+                    This site highlights the work I have built so far and the direction I am heading in.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">Explore Projects</a>
+                    <a href="https://github.com/plainaditya" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
+                </div>
+            </div>
+
+            <div class="hero-right fade-in" aria-hidden="true">
+                <div class="hero-frame">
+                    <div class="hero-art art-1"></div>
+                    <div class="hero-art art-2"></div>
+                    <div class="hero-art art-3"></div>
+                    <div class="hero-card small-card">
+                        <span>01</span>
+                        <p>Focus</p>
+                    </div>
+                    <div class="hero-card quote-card">
+                        <p class="quote-label">Quote of the day</p>
+                        <p>Build clean, keep learning, and improve the details.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section fade-in" id="about">
+            <p class="section-label">About</p>
+            <h2>Learning by building</h2>
             <p>
                 I am currently focused on strengthening my foundations in programming, problem solving, and web development.
                 I like learning by building small projects first, then improving them step by step.
             </p>
         </section>
 
-        <section class="fade-in" id="skills">
-            <h2>Skills</h2>
+        <section class="content-section fade-in" id="skills">
+            <p class="section-label">Skills</p>
+            <h2>Core tools</h2>
             <div class="skills-container">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">HTML</span>
@@ -45,10 +78,12 @@
             </div>
         </section>
 
-        <section class="fade-in" id="projects">
-            <h2>Projects</h2>
+        <section class="content-section fade-in" id="projects">
+            <p class="section-label">Projects</p>
+            <h2>Selected work</h2>
             <div class="projects-container">
                 <article class="card">
+                    <div class="card-number">01</div>
                     <h3>Basic Calculator</h3>
                     <p>A simple Python calculator for basic operations.</p>
                     <div class="card-links">
@@ -58,6 +93,7 @@
                 </article>
 
                 <article class="card">
+                    <div class="card-number">02</div>
                     <h3>Number Guessing Game</h3>
                     <p>A fun game where users guess a randomly generated number.</p>
                     <div class="card-links">
@@ -66,6 +102,7 @@
                 </article>
 
                 <article class="card">
+                    <div class="card-number">03</div>
                     <h3>Password Generator</h3>
                     <p>Generates secure passwords with customizable options.</p>
                     <div class="card-links">
@@ -75,8 +112,9 @@
             </div>
         </section>
 
-        <section class="fade-in" id="journey">
-            <h2>What I’m Working On</h2>
+        <section class="content-section fade-in" id="journey">
+            <p class="section-label">Journey</p>
+            <h2>What I am working on</h2>
             <ul class="journey-list">
                 <li>Building stronger project ideas with better UI.</li>
                 <li>Learning more Python and web development.</li>
@@ -85,7 +123,8 @@
             </ul>
         </section>
 
-        <section class="fade-in" id="contact">
+        <section class="content-section fade-in" id="contact">
+            <p class="section-label">Contact</p>
             <h2>Links</h2>
             <div class="contact-links">
                 <a href="https://github.com/plainaditya" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -102,7 +141,7 @@
                 entry.target.classList.add('show');
             }
         });
-    });
+    }, { threshold: 0.15 });
 
     elements.forEach(el => observer.observe(el));
     </script>
