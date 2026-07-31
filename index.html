@@ -1,69 +1,110 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aditya Singh's personal portfolio showcasing projects, skills, and contact links.">
+    <meta name="keywords" content="Aditya Singh, portfolio, Python, web development, projects">
+    <meta name="author" content="Aditya Singh">
     <title>Aditya Singh | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <section class="hero fade-in">
+    <header class="hero fade-in">
+        <p class="eyebrow">Personal Portfolio</p>
         <h1>Aditya Singh</h1>
-        <p>Class 11 PCM Student • Learning Python • Building Real Projects</p>
-    </section>
-
-    <section class="fade-in">
-        <h2>Projects</h2>
-
-        <div class="projects-container">
-
-            <div class="card">
-                <h3>Basic Calculator</h3>
-                <p>A simple Python calculator for basic operations.</p>
-                <a href="https://github.com/plainaditya/first-project-calculator" target="_blank">View Project</a>
-                <a href="https://first-project-calculator-swart.vercel.app/" target="_blank" rel="noopener noreferrer">
-    Live Demo
-</a>
-            </div>
-
-            <div class="card">
-                <h3>Number Guessing Game</h3>
-                <p>A game where users guess a randomly generated number.</p>
-                <a href="https://github.com/plainaditya/Number-guessing-game" target="_blank">View Project</a>
-            </div>
-
-            <div class="card">
-                <h3>Password Generator</h3>
-                <p>Generates secure passwords with customizable options.</p>
-                <a href="https://github.com/plainaditya/Password-Generator" target="_blank">View Project</a>
-            </div>
-
+        <p class="hero-subtitle">Class 11 PCM student • Learning Python • Building real projects</p>
+        <p class="hero-text">
+            I enjoy creating simple, useful, and visually clean projects while improving my coding skills.
+            This site highlights the work I have built so far and the direction I am heading in.
+        </p>
+        <div class="hero-actions">
+            <a href="#projects">View Projects</a>
+            <a href="https://github.com/plainaditya" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
+    </header>
 
-    </section>
+    <main>
+        <section class="fade-in" id="about">
+            <h2>About Me</h2>
+            <p>
+                I am currently focused on strengthening my foundations in programming, problem solving, and web development.
+                I like learning by building small projects first, then improving them step by step.
+            </p>
+        </section>
 
-    <section class="fade-in">
-        <h2>Links</h2>
-        <a href="https://github.com/plainaditya" target="_blank">GitHub</a><br>
-        <a href="https://linkedin.com/in/plainaditya" target="_blank">LinkedIn</a>
-    </section>
+        <section class="fade-in" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Git & GitHub</span>
+            </div>
+        </section>
 
-    <!-- ✅ SCRIPT GOES HERE (VERY IMPORTANT) -->
+        <section class="fade-in" id="projects">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <article class="card">
+                    <h3>Basic Calculator</h3>
+                    <p>A simple Python calculator for basic operations.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/plainaditya/first-project-calculator" target="_blank" rel="noopener noreferrer">View Code</a>
+                        <a href="https://first-project-calculator-swart.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Number Guessing Game</h3>
+                    <p>A fun game where users guess a randomly generated number.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/plainaditya/Number-guessing-game" target="_blank" rel="noopener noreferrer">View Code</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3>Password Generator</h3>
+                    <p>Generates secure passwords with customizable options.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/plainaditya/Password-Generator" target="_blank" rel="noopener noreferrer">View Code</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="fade-in" id="journey">
+            <h2>What I’m Working On</h2>
+            <ul class="journey-list">
+                <li>Building stronger project ideas with better UI.</li>
+                <li>Learning more Python and web development.</li>
+                <li>Improving GitHub presentation and documentation.</li>
+                <li>Creating a portfolio that feels more complete and professional.</li>
+            </ul>
+        </section>
+
+        <section class="fade-in" id="contact">
+            <h2>Links</h2>
+            <div class="contact-links">
+                <a href="https://github.com/plainaditya" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/plainaditya" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
     <script>
-    const elements = document.querySelectorAll(".fade-in");
-
+    const elements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("show");
+                entry.target.classList.add('show');
             }
         });
     });
 
     elements.forEach(el => observer.observe(el));
     </script>
-
 </body>
-
 </html>
