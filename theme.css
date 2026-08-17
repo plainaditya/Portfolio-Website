@@ -2,8 +2,52 @@
    Theme + navigation polish
    - Integrated light/dark theme
    - Sliding sun -> moon theme control
-   - Keeps the existing portfolio design intact
+   - Technology logos for brand and core tools
 */
+
+/* Brand logo */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.brand-icon {
+    display: inline-grid;
+    place-items: center;
+    color: #4f8cff;
+    font-size: 1.05rem;
+    transition: color 280ms var(--ease), transform 280ms var(--ease);
+}
+
+html.dark-mode .brand-icon {
+    color: #8b7cff;
+}
+
+.brand:hover .brand-icon {
+    transform: translateY(-1px) scale(1.06);
+}
+
+/* Core-tool logos */
+.skill-tag {
+    gap: 0.55rem;
+}
+
+.skill-icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 1.12rem;
+    line-height: 1;
+    transition: transform 180ms var(--ease), filter 180ms var(--ease);
+}
+
+.skill-tag:hover .skill-icon {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+html.dark-mode .skill-tag .devicon-github-original {
+    color: #f4f1eb;
+}
 
 /* Theme toggle */
 .theme-toggle {
@@ -55,15 +99,8 @@
     transition: opacity 280ms var(--ease), transform 280ms var(--ease);
 }
 
-.theme-track::before {
-    content: '☀';
-    left: 0.52rem;
-}
-
-.theme-track::after {
-    content: '☾';
-    right: 0.52rem;
-}
+.theme-track::before { content: '☀'; left: 0.52rem; }
+.theme-track::after { content: '☾'; right: 0.52rem; }
 
 .theme-thumb {
     position: absolute;
@@ -94,15 +131,8 @@
     transition: opacity 240ms var(--ease), transform 420ms var(--ease);
 }
 
-.theme-thumb-sun {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-.theme-thumb-moon {
-    opacity: 0;
-    transform: rotate(-70deg) scale(0.35);
-}
+.theme-thumb-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+.theme-thumb-moon { opacity: 0; transform: rotate(-70deg) scale(0.35); }
 
 /* Smooth theme transition */
 body,
@@ -120,7 +150,6 @@ body,
 /* Dark theme */
 html.dark-mode {
     color-scheme: dark;
-
     --bg: #090a0d;
     --bg-2: #111318;
     --surface: rgba(24, 27, 33, 0.76);
@@ -138,24 +167,18 @@ html.dark-mode {
     --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.24);
 }
 
-/* Navbar text must stay bright in dark mode.
-   The base .top-nav uses --text, which intentionally changes for buttons,
-   so explicitly pin the navigation brand to white here. */
-html.dark-mode .top-nav,
-html.dark-mode .brand,
-html.dark-mode .nav-links a {
-    color: #ffffff;
+html.dark-mode body {
+    background:
+        radial-gradient(circle at 8% 4%, rgba(255, 255, 255, 0.035), transparent 25%),
+        radial-gradient(circle at 92% 10%, rgba(196, 163, 123, 0.055), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
-html.dark-mode .brand {
-    font-weight: 800;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
-}
-
-/* Avoid the browser's blue selection making the brand look like a button. */
-.top-nav ::selection {
-    background: rgba(213, 185, 149, 0.35);
-    color: inherit;
+html.dark-mode body::before {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 62%);
 }
 
 html.dark-mode .theme-toggle {
@@ -164,19 +187,10 @@ html.dark-mode .theme-toggle {
 }
 
 html.dark-mode .theme-toggle:hover,
-html.dark-mode .theme-toggle:focus-visible {
-    background: rgba(255, 255, 255, 0.14);
-}
+html.dark-mode .theme-toggle:focus-visible { background: rgba(255, 255, 255, 0.14); }
 
-html.dark-mode .theme-track::before {
-    opacity: 0.2;
-    transform: translateY(-50%) scale(0.8);
-}
-
-html.dark-mode .theme-track::after {
-    opacity: 0.62;
-    transform: translateY(-50%) scale(1.08);
-}
+html.dark-mode .theme-track::before { opacity: 0.2; transform: translateY(-50%) scale(0.8); }
+html.dark-mode .theme-track::after { opacity: 0.62; transform: translateY(-50%) scale(1.08); }
 
 html.dark-mode .theme-thumb {
     transform: translateX(1.68rem);
@@ -185,17 +199,9 @@ html.dark-mode .theme-thumb {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.42), inset 0 1px 1px rgba(255,255,255,0.08);
 }
 
-html.dark-mode .theme-thumb-sun {
-    opacity: 0;
-    transform: rotate(70deg) scale(0.35);
-}
+html.dark-mode .theme-thumb-sun { opacity: 0; transform: rotate(70deg) scale(0.35); }
+html.dark-mode .theme-thumb-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
-html.dark-mode .theme-thumb-moon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-/* Keep the hero artwork rich in both themes */
 html.dark-mode .hero-frame {
     border-color: rgba(255, 255, 255, 0.12);
     background:
@@ -223,9 +229,7 @@ html.dark-mode .contact-links a {
 
 html.dark-mode .btn-primary:hover,
 html.dark-mode .card a:hover,
-html.dark-mode .contact-links a:hover {
-    background: #ffffff;
-}
+html.dark-mode .contact-links a:hover { background: #ffffff; }
 
 html.dark-mode .btn-secondary {
     color: var(--text-dark);
@@ -253,67 +257,24 @@ html.dark-mode .card:hover {
     border-color: var(--line-strong);
 }
 
-html.dark-mode .card-number {
-    color: rgba(244, 241, 235, 0.38);
-}
-
-html.dark-mode .site-footer {
-    color: rgba(244, 241, 235, 0.54);
-}
-
+html.dark-mode .card-number { color: rgba(244, 241, 235, 0.38); }
+html.dark-mode .site-footer { color: rgba(244, 241, 235, 0.54); }
 html.dark-mode .footer-title,
-html.dark-mode .footer-links-wrap a:hover {
-    color: var(--text-dark);
-}
-
-html.dark-mode .footer-bottom {
-    border-color: rgba(255, 255, 255, 0.07);
-}
+html.dark-mode .footer-links-wrap a:hover { color: var(--text-dark); }
+html.dark-mode .footer-bottom { border-color: rgba(255, 255, 255, 0.07); }
 
 /* Responsive navbar */
 @media (max-width: 640px) {
-    .nav-links {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        width: 100%;
-    }
-
-    .nav-links a,
-    .theme-toggle {
-        min-width: 0;
-    }
-
-    .nav-links a {
-        padding-inline: 0.2rem;
-    }
-
-    .theme-toggle {
-        width: 100%;
-        height: 2.15rem;
-    }
-
-    .theme-thumb {
-        width: 1.7rem;
-        height: 1.7rem;
-        top: 0.17rem;
-        left: 0.17rem;
-    }
-
-    html.dark-mode .theme-thumb {
-        transform: translateX(1.7rem);
-    }
+    .nav-links { grid-template-columns: repeat(5, minmax(0, 1fr)); width: 100%; }
+    .nav-links a, .theme-toggle { min-width: 0; }
+    .nav-links a { padding-inline: 0.2rem; }
+    .theme-toggle { width: 100%; height: 2.15rem; }
+    .theme-thumb { width: 1.7rem; height: 1.7rem; top: 0.17rem; left: 0.17rem; }
+    html.dark-mode .theme-thumb { transform: translateX(1.7rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    body,
-    .top-nav,
-    .stat-block,
-    .card,
-    .skill-tag,
-    .btn-secondary,
-    .site-footer,
-    .theme-toggle,
-    .theme-thumb,
-    .theme-thumb-icon {
+    body, .top-nav, .stat-block, .card, .skill-tag, .btn-secondary, .site-footer, .theme-toggle, .theme-thumb, .theme-thumb-icon {
         transition-duration: 0.01ms !important;
     }
 }
