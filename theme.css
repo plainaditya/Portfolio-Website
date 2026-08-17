@@ -1,0 +1,220 @@
+/*
+   Theme + navigation polish
+   Keeps the existing portfolio design intact and adds a properly
+   integrated light/dark theme toggle.
+*/
+
+/* Theme toggle */
+.theme-toggle {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.42rem;
+    min-height: 2.25rem;
+    padding: 0.5rem 0.78rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    color: rgba(255, 255, 255, 0.86);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 180ms var(--ease), background-color 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease), color 180ms var(--ease);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.theme-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 1.05rem;
+    height: 1.05rem;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+/* Smooth theme transition */
+body,
+.top-nav,
+.stat-block,
+.card,
+.skill-tag,
+.btn-secondary,
+.site-footer {
+    transition-property: background-color, background, border-color, color, box-shadow;
+    transition-duration: 280ms;
+    transition-timing-function: var(--ease);
+}
+
+/* Dark theme */
+html.dark-mode {
+    color-scheme: dark;
+
+    --bg: #090a0d;
+    --bg-2: #111318;
+    --surface: rgba(24, 27, 33, 0.76);
+    --surface-strong: rgba(31, 35, 42, 0.9);
+    --surface-dark: #f4f1eb;
+    --surface-dark-2: #ffffff;
+    --text: #111318;
+    --text-dark: #f4f1eb;
+    --muted: rgba(244, 241, 235, 0.68);
+    --muted-strong: rgba(244, 241, 235, 0.84);
+    --line: rgba(255, 255, 255, 0.1);
+    --line-strong: rgba(255, 255, 255, 0.18);
+    --accent: #d5b995;
+    --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+    --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+html.dark-mode body {
+    background:
+        radial-gradient(circle at 8% 4%, rgba(255, 255, 255, 0.035), transparent 25%),
+        radial-gradient(circle at 92% 10%, rgba(196, 163, 123, 0.055), transparent 26%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+
+html.dark-mode body::before {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 62%);
+}
+
+/* Keep the hero artwork rich in both themes */
+html.dark-mode .hero-frame {
+    border-color: rgba(255, 255, 255, 0.12);
+    background:
+        radial-gradient(circle at 68% 24%, rgba(205, 174, 136, 0.18), transparent 25%),
+        radial-gradient(circle at 35% 78%, rgba(100, 76, 52, 0.2), transparent 26%),
+        linear-gradient(145deg, #17191e 0%, #08090c 100%);
+}
+
+html.dark-mode .art-1 {
+    background: radial-gradient(circle at 34% 32%, rgba(237, 218, 191, 0.9), rgba(145, 119, 88, 0.8) 34%, rgba(59, 47, 37, 0.55) 60%, transparent 72%);
+}
+
+html.dark-mode .art-2 {
+    background: radial-gradient(circle, rgba(94, 71, 48, 0.42), rgba(20, 22, 27, 0.05) 60%, transparent 70%);
+}
+
+/* Light-mode controls */
+html:not(.dark-mode) .theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark-mode controls */
+html.dark-mode .theme-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+html.dark-mode .theme-toggle:hover,
+html.dark-mode .theme-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+html.dark-mode .btn-primary,
+html.dark-mode .card a,
+html.dark-mode .contact-links a {
+    color: #111318;
+    border-color: #f4f1eb;
+    background: #f4f1eb;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+html.dark-mode .btn-primary:hover,
+html.dark-mode .card a:hover,
+html.dark-mode .contact-links a:hover {
+    background: #ffffff;
+}
+
+html.dark-mode .btn-secondary {
+    color: var(--text-dark);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--line-strong);
+}
+
+html.dark-mode .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.26);
+}
+
+html.dark-mode .stat-block,
+html.dark-mode .skill-tag,
+html.dark-mode .card {
+    background: var(--surface);
+    border-color: var(--line);
+    color: var(--text-dark);
+}
+
+html.dark-mode .stat-block:hover,
+html.dark-mode .skill-tag:hover,
+html.dark-mode .card:hover {
+    background: var(--surface-strong);
+    border-color: var(--line-strong);
+}
+
+html.dark-mode .card-number {
+    color: rgba(244, 241, 235, 0.38);
+}
+
+html.dark-mode .site-footer {
+    color: rgba(244, 241, 235, 0.54);
+}
+
+html.dark-mode .footer-title,
+html.dark-mode .footer-links-wrap a:hover {
+    color: var(--text-dark);
+}
+
+html.dark-mode .footer-bottom {
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Responsive navbar: five controls including the theme toggle */
+@media (max-width: 640px) {
+    .nav-links {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .nav-links a,
+    .theme-toggle {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding-inline: 0.2rem;
+    }
+
+    .theme-toggle {
+        padding-inline: 0.2rem;
+        gap: 0.15rem;
+        font-size: 0.68rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .top-nav,
+    .stat-block,
+    .card,
+    .skill-tag,
+    .btn-secondary,
+    .site-footer,
+    .theme-toggle {
+        transition-duration: 0.01ms !important;
+    }
+}
