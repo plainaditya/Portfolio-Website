@@ -10,6 +10,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
+    transition: color 280ms var(--ease);
+}
+
+html.dark-mode .brand {
+    color: #ffffff;
 }
 
 .brand-icon {
