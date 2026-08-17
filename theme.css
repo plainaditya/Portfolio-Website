@@ -138,6 +138,26 @@ html.dark-mode {
     --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.24);
 }
 
+/* Navbar text must stay bright in dark mode.
+   The base .top-nav uses --text, which intentionally changes for buttons,
+   so explicitly pin the navigation brand to white here. */
+html.dark-mode .top-nav,
+html.dark-mode .brand,
+html.dark-mode .nav-links a {
+    color: #ffffff;
+}
+
+html.dark-mode .brand {
+    font-weight: 800;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+/* Avoid the browser's blue selection making the brand look like a button. */
+.top-nav ::selection {
+    background: rgba(213, 185, 149, 0.35);
+    color: inherit;
+}
+
 html.dark-mode .theme-toggle {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.16);
