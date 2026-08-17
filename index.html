@@ -28,8 +28,12 @@
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
             <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-                <span class="theme-icon" aria-hidden="true">☾</span>
-                <span class="theme-text">Dark</span>
+                <span class="theme-track" aria-hidden="true">
+                    <span class="theme-thumb">
+                        <span class="theme-thumb-icon theme-thumb-sun">☀</span>
+                        <span class="theme-thumb-icon theme-thumb-moon">☾</span>
+                    </span>
+                </span>
             </button>
         </div>
     </nav>
@@ -195,13 +199,9 @@
     elements.forEach(el => observer.observe(el));
 
     const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    const themeText = themeToggle.querySelector('.theme-text');
 
     function updateThemeButton() {
         const isDark = document.documentElement.classList.contains('dark-mode');
-        themeIcon.textContent = isDark ? '☀' : '☾';
-        themeText.textContent = isDark ? 'Light' : 'Dark';
         themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         themeToggle.setAttribute('aria-pressed', String(isDark));
     }
