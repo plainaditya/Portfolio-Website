@@ -11,6 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            if (savedTheme === 'dark') document.documentElement.classList.add('dark-mode');
+        })();
+    </script>
 </head>
 <body>
     <nav class="top-nav">
@@ -20,6 +26,10 @@
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">☾</span>
+                <span class="theme-text">Dark</span>
+            </button>
         </div>
     </nav>
 
@@ -182,6 +192,26 @@
     }, { threshold: 0.15 });
 
     elements.forEach(el => observer.observe(el));
+
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const themeText = themeToggle.querySelector('.theme-text');
+
+    function updateThemeButton() {
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        themeIcon.textContent = isDark ? '☀' : '☾';
+        themeText.textContent = isDark ? 'Light' : 'Dark';
+        themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+        updateThemeButton();
+    });
+
+    updateThemeButton();
     </script>
 </body>
 </html>
